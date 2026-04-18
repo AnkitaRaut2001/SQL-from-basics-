@@ -1,0 +1,116 @@
+use day1;
+
+select * from students;
+
+insert into students(id,name,age,marks)
+values(3,"Shurti",24,79),
+	  (4,"Dipali",23,56),
+      (5,"Komal",24,80),
+      (6,"Suraj",23,45),
+      (7,"Pooja",22,32),
+      (8,"Arjun",24,90);
+      
+select * from students;
+
+-- select statement : SELECT is used to fetch data from a table
+SELECT * FROM STUDENTS;
+
+-- FETCH ONLY NAME AND MARKS 
+SELECT NAME,MARKS
+FROM STUDENTS;
+
+-- WHERE CLAUSE ( FILTERING DATA) -- WE WANT ONLY THOSE STUDENTS WHO MET CERTAIN CONDITONS
+SELECT * 
+FROM STUDENTS
+WHERE AGE >=22;
+
+-- AND
+SELECT * 
+FROM STUDENTS
+WHERE AGE >22 AND MARKS >80;
+
+-- OR
+SELECT * 
+FROM STUDENTS
+WHERE AGE >22 OR MARKS>80;
+
+-- NOT
+SELECT *
+FROM STUDENTS
+WHERE NOT AGE = 22;
+
+-- LIKE OPERATOR ( PATTERN MATCHING)
+-- 1. STARTS WITH
+SELECT NAME
+FROM STUDENTS
+WHERE NAME LIKE 'A%';
+
+-- ENDS WITH
+SELECT NAME
+FROM STUDENTS
+WHERE NAME LIKE '%A';
+
+-- CONTAINS
+SELECT NAME
+FROM STUDENTS
+WHERE NAME LIKE '%AN%';
+
+-- ORDER BY (SORTING) 
+
+-- I WANT TO SORT AGE IN ASC ORDER
+SELECT *
+FROM STUDENTS
+ORDER BY AGE ASC;
+
+-- I WANT TO SORT AGE IN DESC ORDER
+SELECT *
+FROM STUDENTS
+ORDER BY AGE DESC;
+
+-- LIMIT - TOP RECORDS FETCH
+
+SELECT * 
+FROM STUDENTS
+LIMIT 5;
+
+-- DISTINCT ( UNIQUE VALUES)
+SELECT DISTINCT
+AGE FROM STUDENTS;
+
+-- BETWEEN -- ( RANGE FILTER)
+SELECT * 
+FROM STUDENTS
+WHERE AGE BETWEEN 22 AND 25;
+
+
+-- IN OPERATOR 
+SELECT *
+FROM STUDENTS
+WHERE AGE IN ( 24,23,21);
+
+-- NULL HANDING
+
+INSERT INTO STUDENTS(id, name, age, marks)values(9,NULL,24,55);
+select * 
+from students
+where name is null;
+
+select *
+from students
+where name is not null;
+
+select coalesce(name,"Unknown") as Name from students;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
